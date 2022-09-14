@@ -4,11 +4,12 @@ body {
     justify-content: center;
     height: 100vh;
     align-items: center;
-
     font-family: cursive;
     text-align: center;
     background-color: darkslategray;
 }
+
+
 
 .form {
     background-color: lightslategray;

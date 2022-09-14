@@ -3,8 +3,8 @@ const num2 = Math.ceil(Math.random() * 15);
 
 const formEl = document.getElementById('form');
 const inputEl = document.getElementById('input');
-const score = document.getElementById('score');
-let scorss = 0;
+const scoreEl = document.getElementById('score');
+
 
 
 document.getElementById('qustion').innerText = `What is ${num1} multiplay by ${num2}?`
@@ -13,16 +13,25 @@ const anwser = num1 * num2;
 
 
 
+let scorss = JSON.parse(localStorage.getItem('score'));
+// if (!scorss) {
+//     scorss = 0;
+// }
+scoreEl.innerText = `Score : ${scorss}`;
 formEl.addEventListener("submit", (event) => {
-
+    // event.preventDefault();
     const userAns = +inputEl.value;
 
     if (userAns === anwser) {
-        score++;
-        console.log(scorss)
+        scorss++;
+        updateStorage();
     } else {
-        score--;
-        console.log(scorss)
+        scorss--;
+        updateStorage();
     }
-    event.preventDefault();
-})
+
+});
+
+function updateStorage() {
+    localStorage.setItem('score', JSON.stringify(scorss));
+}
