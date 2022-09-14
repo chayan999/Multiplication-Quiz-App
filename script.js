@@ -14,9 +14,9 @@ const anwser = num1 * num2;
 
 
 let scorss = JSON.parse(localStorage.getItem('score'));
-// if (!scorss) {
-//     scorss = 0;
-// }
+if (!scorss) {
+    scorss = 0;
+}
 scoreEl.innerText = `Score : ${scorss}`;
 formEl.addEventListener("submit", (event) => {
     // event.preventDefault();
